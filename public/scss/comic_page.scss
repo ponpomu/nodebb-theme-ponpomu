@@ -1,0 +1,326 @@
+#tooltip {
+  display: none;
+  visibility: visible;
+}
+
+#tooltip[data-show] {
+  display: block;
+}
+
+.slick-slide img {
+  display: block;
+  margin: auto;
+  max-width: 100%;
+  max-height: 100vh;
+}
+
+.container {
+  &.comic-box {
+    padding-right: 0;
+    padding-left: 0;
+  }
+}
+
+img {
+  vertical-align: middle;
+  max-width: 100%;
+}
+
+img.topic-thumb {
+  vertical-align: middle;
+  max-width: 120px;
+}
+
+.ratio-container{
+  position: relative;
+}
+.ratio-container::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  border-left: 1px solid #73ff00;
+  border-top: 1px solid #a71313;
+  height: 10px;
+  width: 10px;
+}
+
+.bar-stauts-cotainer {
+  position: fixed;
+  display: flex;
+  /* width: 800px; */
+  justify-content: center;
+  align-items: center;
+  bottom: 60px;
+  left: 0;
+  right: 0;
+  height: 40px;
+  z-index: calc( 1045 - 100 );
+
+  // margin: 0 15vw;
+  @include media-breakpoint-up(md) {
+    margin: 0 15vw;
+  }
+}
+
+//进度条样式
+.progress-bar-container {
+  background-color: var(--bs-body-bg);
+  // margin: 0 10vw;
+  width: 100%;
+  padding: 5px 15px;
+  border-radius: 50px;
+  display: flex;
+  align-items: center;
+}
+
+.prev-btn,
+.next-btn {
+  width: 40px;
+  height: 40px;
+  background-color: var(--bs-body-bg);
+  // clip-path: circle(50%);
+  z-index: calc( 1045 - 100 );
+  flex-shrink: 0;
+  border-radius: 50%;
+  margin: 0 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+.slider {
+  width: 100%;
+  height: 3px;
+  background: var(--bs-blue);
+  outline: none;
+  opacity: 0.7;
+  transition: opacity 0.2s;
+  margin-right: 10px;
+  border-radius: 10px;
+}
+
+.slider:hover {
+  opacity: 1;
+}
+
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  background: #0157CE;
+  cursor: pointer;
+}
+
+.slider::-moz-range-thumb {
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  background: #0157CE;
+  cursor: pointer;
+}
+
+#comic-page-count {
+  font-size: 1rem;
+  font-weight: bold;
+  color: #333;
+}
+
+.comic-page-count.comic-bottom {
+  display: block;
+  position: fixed;
+  bottom: 10px;
+  right: calc((100vw - 25px) / 2);
+  padding: 2px 4px;
+  text-align: center;
+  background-color: rgba(0, 0, 0, 0.3);
+  border-radius: 10px;
+  z-index: 1029;
+}
+
+#comic-page-header {
+  position: fixed;
+  height: 60px;
+  background-color: rgba(var(--bs-body-bg-rgb)) !important;
+  // background-color: rgba(var(--bs-body-bg-rgb), var(--bs-bg-opacity)) !important;
+  z-index: 1500;
+  top: 0;
+  width: 100%;
+  font-size: 1.2rem;
+  display: flex;
+  border-radius: 0px 0px 8px 8px;
+  transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  // z-index: calc( 1045 + 100 );
+  @include media-breakpoint-up(md) {
+    left: 20%;
+    width: calc(100% - 40%);
+  }
+}
+.offcanvas .chapter-list{
+  display: flex;
+  flex-direction: column;
+}
+#comic-page-nav {
+  width: 70%;
+  height: 100%;
+  display: flex;
+
+  .return-to-comic {
+    height: inherit;
+    width: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 10px
+  }
+
+  .comic-info {
+    width: 100%;
+
+    .comic-title {
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      height: 50%;
+      font-size: 1.25rem;
+      font-weight: 600;
+    }
+
+    .chaper-title {
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      height: 50%;
+      font-size: 1rem;
+      font-weight: 400;
+    }
+  }
+
+}
+
+#comic-page-tool {
+  width: 30%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 0 10px;
+}
+
+.lazyload,
+.lazyloading {
+  // filter: blur(1px);
+  opacity: .9;
+  background-color: #ffffff6e;
+}
+
+.lazyloaded {
+  filter: none;
+  opacity: 1;
+  // transition: filter 300ms;
+  transition: opacity 300ms;
+}
+
+:root {
+  --bs-primary-rgb: 229, 160, 119;
+  --bs-body-color: #697a8d;
+  --bs-body-color-bright: #566a7f;
+  --card-background-rgb: #DDE1ED;
+  --bs-border-radius: 10px;
+}
+
+
+.page-topic-comic.template-topic_manhua {
+  background-color: #263038;
+
+  & .container.px-md-4.brand-container {
+    display: none;
+  }
+
+  & .bottombar-nav {
+    display: none !important;
+  }
+
+  & #panel {
+    margin: 0 !important;
+  }
+
+  & div[data-widget-area="footer"] {
+    display: none !important;
+  }
+
+  & .comic-page-count.comic-bottom {
+    margin: 0px;
+    color: rgb(255, 255, 255);
+    font-family: Roboto, Helvetica, Arial, sans-serif;
+    font-weight: 400;
+    font-size: 1rem;
+    line-height: 1.5;
+    letter-spacing: 0.00938em;
+    bottom: 10px;
+  }
+}
+
+// [topic_mh page]
+.page-topic-comic.theme-ponpomu .container {
+  padding: 0 !important;
+}
+
+.page-topic-comic.template-topic_manhua div[component="bottombar"]{
+  display: none !important;
+}
+//如何区分PC的横屏和手机的横屏
+@media screen and  (orientation: landscape) {
+  .page-topic-comic.template-topic_manhua .px-md-4 {
+    width: 100%;
+  }
+}
+
+@media screen and (min-width: 1024px) and (orientation: landscape) {
+  .page-topic-comic.template-topic_manhua .px-md-4 {
+    width: 50%;
+  }
+}
+
+
+
+.template-topic_manhua{
+  .loader {
+    position: relative;
+    border: 24px solid #FFF;
+    border-radius: 50%;
+    box-sizing: border-box;
+    animation: eat 1s linear infinite;
+  }
+  .loader::after , .loader::before {
+    content: '';
+    position: absolute;
+    left: 50px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: #fff;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    box-sizing: border-box;
+    opacity: 0;
+    animation: move 2s linear infinite;
+  }
+
+  .loader::before {
+    animation-delay: 1s;
+  }
+
+  @keyframes eat {
+    0% , 49% { border-right-color: #FFF }
+    50% , 100% { border-right-color: #0000 }
+  }
+  @keyframes move {
+    0% { left: 75px ; opacity: 1}
+    50% { left: 0px; opacity: 1 }
+    52%, 100% { left: -5px; opacity: 0; }
+  }
+}

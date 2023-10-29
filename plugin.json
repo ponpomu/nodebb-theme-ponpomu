@@ -1,0 +1,72 @@
+{
+	"id": "nodebb-theme-ponpomu",
+	"hooks": [
+		{
+			"hook": "static:app.load",
+			"method": "init"
+		},
+		{
+			"hook": "filter:category.get",
+			"method": "parseCategoryData"
+		},
+		{
+			"hook": "filter:admin.header.build",
+			"method": "addAdminNavigation"
+		},
+		{
+			"hook": "filter:widgets.getAreas",
+			"method": "defineWidgetAreas"
+		},
+		{
+			"hook": "filter:config.get",
+			"method": "getThemeConfig"
+		},
+		{
+			"hook": "filter:settings.get",
+			"method": "getAdminSettings"
+		},
+		{
+			"hook": "filter:user.saveSettings",
+			"method": "saveUserSettings"
+		},
+		{
+			"hook": "filter:user.profileMenu",
+			"method": "addProfileItem"
+		},
+		{
+			"hook": "filter:middleware.renderHeader",
+			"method": "filterMiddlewareRenderHeader"
+		},
+		{
+			"hook": "filter:middleware.render",
+			"method": "middlewareFinalRender"
+		},
+		{
+			"hook": "filter:topic.getFields",
+			"method": "topicGetFields"
+		},
+		{
+			"hook": "filter:topic.create",
+			"method": "topicCreateHandle"
+		},
+		{
+			"hook": "action:topic.save",
+			"method": "topicSavedHandle"
+		}
+	],
+	"scripts": [
+		"./public/harmony.js",
+		"./public/index.js",
+		"node_modules/lazysizes/lazysizes.min.js",
+		"./public/modules/handlePageBack.js"
+	],
+	"modules": {
+		"../admin/plugins/ponpomu.js": "./public/modules/admin.js",
+		"../client/account/theme.js": "./public/modules/settings.js",
+		"../client/topic_manhua.js": "./public/modules/topic_manhua.js"
+	},
+	"staticDirs": {
+		"inter": "node_modules/@fontsource/inter/files",
+		"poppins": "node_modules/@fontsource/poppins/files"
+	}
+}

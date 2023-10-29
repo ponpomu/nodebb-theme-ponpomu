@@ -1,0 +1,8 @@
+{
+    "id": "nodebb-theme-ponpomu",
+    "name": "Ponpomu",
+    "description": "The default theme for NodeBB. Uses a standard approach to forum design.",
+    "url": "https://github.com/nodebb/nodebb-theme-harmony",
+    "templates": "./templates",
+    "screenshot": "screenshot.png"
+}

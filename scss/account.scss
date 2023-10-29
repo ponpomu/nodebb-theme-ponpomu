@@ -1,0 +1,21 @@
+.page-user.page-status-200 #panel {
+	margin-top: 0px!important;
+}
+.account {
+	margin-top: 200px;
+
+	@include media-breakpoint-up(md) {
+		margin-top: 300px;
+	}
+
+	.categories {
+		[component="categories/category"] {
+			$category-pad: 50;
+			@for $i from 1 through 6 {
+				.depth-#{$i} {
+					padding-left: #{$category-pad * $i}px;
+				}
+			}
+		}
+	}
+}
