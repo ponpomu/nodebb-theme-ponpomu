@@ -1,9 +1,16 @@
+<!-- IMPORT partials/breadcrumbs-json-ld.tpl -->
 <!-- IMPORT partials/breadcrumbs.tpl -->
-<div class="d-flex flex-column gap-2">
+
+<div class="category-header d-flex flex-column gap-2">
 	<div class="d-flex gap-2 align-items-center mb-1 {{{ if config.theme.centerHeaderElements }}}justify-content-center{{{ end }}}">
 		{buildCategoryIcon(@value, "40px", "rounded-1 flex-shrink-0")}
 		<h1 class="tracking-tight fs-2 fw-semibold mb-0 text-center">{./name}</h1>
 	</div>
+	{{{ if ./descriptionParsed }}}
+	<div class="description text-muted text-sm w-100 {{{ if config.theme.centerHeaderElements }}}text-center{{{ end }}}">
+		{./descriptionParsed}
+	</div>
+	{{{ end }}}
 	<div class="d-flex flex-wrap gap-2 {{{ if config.theme.centerHeaderElements }}}justify-content-center{{{ end }}}">
 		<span class="badge text-body border border-gray-300 stats text-xs">
 			<span title="{totalTopicCount}" class="fw-bold">{humanReadableNumber(totalTopicCount)}</span>
@@ -28,15 +35,14 @@
 <div class="row mt-3">
 	<div class="category d-flex flex-column {{{if widgets.sidebar.length }}}col-lg-9 col-sm-12{{{ else }}}col-lg-12{{{ end }}}">
 		<!-- IMPORT partials/category/subcategory.tpl -->
-
+		{{{ if (topics.length || privileges.topics:create) }}}
 		<!-- IMPORT partials/topic-list-bar.tpl -->
-
-		{{{ if !topics.length }}}
-		{{{ if privileges.topics:create }}}
-		<div class="alert alert-info" id="category-no-topics">
-			[[category:no_topics]]
-		</div>
 		{{{ end }}}
+
+		{{{ if (!topics.length && privileges.topics:create) }}}
+		<div class="alert alert-info" id="category-no-topics">
+			[[category:no-topics]]
+		</div>
 		{{{ end }}}
 
 		<!-- IMPORT partials/topics_list.tpl -->

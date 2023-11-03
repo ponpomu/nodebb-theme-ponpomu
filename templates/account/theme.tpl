@@ -3,7 +3,7 @@
 <div class="mb-3 d-flex justify-content-between">
 	<h3 class="fw-semibold fs-5">[[themes/harmony:settings.title]]</h3>
 
-	<button id="save" type="button" class="btn btn-primary">[[global:save_changes]]</button>
+	<button id="save" type="button" class="btn btn-primary">[[global:save-changes]]</button>
 </div>
 
 <form id="theme-settings" role="form">
@@ -40,6 +40,11 @@
 				[[themes/harmony:settings.autohideBottombar.help]]
 			</p>
 		</label>
+	</div>
+
+	<div class="form-check mb-3">
+		<input class="form-check-input" type="checkbox" id="openSidebars" name="openSidebars" {{{ if theme.openSidebars }}}checked{{{ end }}}>
+		<label class="form-check-label" for="openSidebars">[[themes/harmony:settings.openSidebars]]</label>
 	</div>
 
 	<div class="form-check mb-3">
